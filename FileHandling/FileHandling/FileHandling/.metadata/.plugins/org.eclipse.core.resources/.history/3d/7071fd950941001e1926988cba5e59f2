@@ -1,0 +1,12 @@
+package com.main.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class User {
+
+	private String id;
+	private String email;
+	private String password;
+
+}

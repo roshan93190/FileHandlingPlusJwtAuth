@@ -1,0 +1,29 @@
+package com.main.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.main.payload.UserDto;
+import com.main.repo.UserRepo;
+import com.main.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Override
+	public UserDto createUser(UserDto userDto) {
+		
+		
+		return null;
+	}
+
+	@Override
+	public UserDto findUserById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

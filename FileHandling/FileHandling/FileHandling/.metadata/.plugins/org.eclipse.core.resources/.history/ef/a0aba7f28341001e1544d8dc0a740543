@@ -1,0 +1,19 @@
+package com.main;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+public class FileHandlingApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FileHandlingApplication.class, args);
+	}
+
+	@Bean
+	public ModelMapper ModelMapper() {
+		return new ModelMapper();
+	}
+}

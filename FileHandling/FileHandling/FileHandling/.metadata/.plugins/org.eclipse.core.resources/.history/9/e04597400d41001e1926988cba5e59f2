@@ -1,0 +1,42 @@
+package com.main.serviceImpl;
+
+import java.util.UUID;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.main.exception.ResourceNotFoundException;
+import com.main.model.User;
+import com.main.payload.UserDto;
+import com.main.repo.UserRepo;
+import com.main.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepo userRepo;
+
+	@Autowired
+	private ModelMapper mapper;
+
+	@Override
+	public UserDto createUser(UserDto userDto) {
+		User user = this.mapper.map(userDto, User.class);
+		String id = UUID.randomUUID().toString();
+		
+		User save = this.userRepo.save(user);
+		return this.mapper.map(save, UserDto.class);
+
+	}
+
+	@Override
+	public UserDto findUserById(String id) {
+		User user = this.userRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No user found with id :" + id));
+		return this.mapper.map(user, UserDto.class);
+
+	}
+
+}

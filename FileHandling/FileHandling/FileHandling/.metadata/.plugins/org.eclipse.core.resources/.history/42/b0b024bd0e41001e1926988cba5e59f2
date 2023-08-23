@@ -1,0 +1,11 @@
+package com.main.service;
+
+import com.main.payload.UserDto;
+
+public interface UserService {
+
+	UserDto createUser(UserDto userDto);
+
+	UserDto findUserById(String id);
+
+}
